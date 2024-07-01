@@ -6,10 +6,10 @@ metadata:
   name: {{ .Values.emailService.name }}
   namespace: {{.Release.Namespace}}
   {{- if not .Values.serviceAccounts.annotationsOnlyForCartservice }}
-  {{- with .Values.serviceAccounts.annotations }}
   annotations:
+    {{- with .Values.serviceAccounts.annotations }}
     {{- toYaml . | nindent 4 }}
-  {{- end }}
+    {{- end }}
   {{- end }}
 ---
 {{- end }}
@@ -113,8 +113,8 @@ spec:
         matchLabels:
           app: {{ .Values.checkoutService.name }}
     ports:
-     - port: 8080
-       protocol: TCP
+    - port: 8080
+      protocol: TCP
   egress:
   - {}
 {{- end }}
