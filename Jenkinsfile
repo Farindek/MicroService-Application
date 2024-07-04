@@ -34,7 +34,7 @@ pipeline {
                     dir("/var/lib/jenkins/workspace/Microservice_Deployment/src/cartservice/src/") {
                         sh "docker build -t farindek/cartservice:latest ."
                         sh "docker push farindek/cartservice:latest"
-                        sh "docker rmi farindek/cartservice::latest"
+                        sh "docker rmi farindek/cartservice:latest"
                         sh 'docker system prune -a -f --volumes'
                     }
                 }
